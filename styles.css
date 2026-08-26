@@ -1,0 +1,204 @@
+/* Cuaderno de Guionista — hoja de estilos compartida (estilo máquina de escribir) */
+:root{
+  --paper:#F6F3EA;
+  --ink:#262420;
+  --gris:#8B8778;
+  --cinta:#A33B2E; /* rojo de cinta de máquina */
+  --linea:#DAD5C6;
+  --verde:#4B7A55;
+  --ambar:#9C7A2E;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --paper:#17181A;
+    --ink:#DCD8CC;
+    --gris:#8E8A7E;
+    --cinta:#C96B5C;
+    --linea:#2E3033;
+    --verde:#83B48D;
+    --ambar:#CBA85A;
+  }
+}
+*{box-sizing:border-box}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Courier Prime","Courier New",Courier,monospace;
+  font-size:1rem;
+  line-height:1.7;
+  margin:0;
+  padding:0 1.25rem;
+}
+.hoja{max-width:660px;margin:0 auto;padding:3.5rem 0 5rem}
+
+/* Cabecera común */
+.membrete{
+  text-align:center;
+  margin-bottom:3.5rem;
+}
+.membrete .marca{
+  font-family:"Special Elite","Courier Prime",Courier,monospace;
+  font-size:.95rem;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  margin:0 0 .35rem;
+}
+.membrete .marca a{color:inherit;text-decoration:none}
+.membrete .marca a:hover{color:var(--cinta)}
+.membrete .sub{
+  font-size:.78rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--gris);
+  margin:0;
+}
+.membrete::after{
+  content:"* * *";
+  display:block;
+  color:var(--gris);
+  letter-spacing:.5em;
+  margin-top:1.5rem;
+  font-size:.8rem;
+}
+
+/* Home: índice de películas */
+.indice{list-style:none;margin:0;padding:0;display:grid;gap:3rem}
+.indice a{display:block;color:inherit;text-decoration:none}
+.indice h2{
+  font-family:"Special Elite","Courier Prime",Courier,monospace;
+  font-size:clamp(1.6rem,6vw,2.2rem);
+  font-weight:400;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  margin:0 0 .5rem;
+  text-wrap:balance;
+}
+.indice a:hover h2, .indice a:focus-visible h2{
+  color:var(--cinta);
+  text-decoration:underline;
+  text-underline-offset:8px;
+  text-decoration-thickness:1.5px;
+}
+.indice a:focus-visible{outline:2px solid var(--cinta);outline-offset:6px}
+.indice .genero{
+  font-size:.75rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--cinta);
+  margin:0 0 .5rem;
+}
+.indice .descripcion{
+  color:var(--gris);
+  font-size:.95rem;
+  margin:0;
+  max-width:56ch;
+}
+.pie{
+  margin-top:4.5rem;
+  padding-top:1.5rem;
+  border-top:1px solid var(--linea);
+  font-size:.8rem;
+  color:var(--gris);
+  text-align:center;
+}
+.pie a{color:var(--gris)}
+.pie a:hover{color:var(--cinta)}
+
+/* Página de proyecto */
+.volver{
+  font-size:.8rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--gris);
+  text-decoration:none;
+}
+.volver:hover{color:var(--cinta)}
+.proyecto-cab{margin:2.5rem 0 2rem}
+.proyecto-cab h1{
+  font-family:"Special Elite","Courier Prime",Courier,monospace;
+  font-size:clamp(1.9rem,7vw,2.6rem);
+  font-weight:400;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  margin:0 0 .75rem;
+  text-wrap:balance;
+}
+.ficha-datos{
+  font-size:.8rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--gris);
+  margin:0 0 .5rem;
+}
+.estado{
+  display:inline-block;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  border:1.5px solid currentColor;
+  border-radius:2px;
+  padding:.12rem .55rem;
+}
+.estado.dev{color:var(--verde)}
+.estado.semilla{color:var(--ambar)}
+
+.logline{
+  border-left:3px solid var(--cinta);
+  padding:.25rem 0 .25rem 1.1rem;
+  margin:2rem 0;
+}
+.logline .etiqueta{
+  display:block;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--cinta);
+  margin-bottom:.4rem;
+}
+.logline p{margin:0}
+
+.seccion{margin:2.5rem 0}
+.seccion h2{
+  font-size:.85rem;
+  font-weight:700;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  border-bottom:1px solid var(--linea);
+  padding-bottom:.5rem;
+  margin:0 0 1.25rem;
+}
+.seccion p{margin:0 0 1rem}
+.seccion p:last-child{margin-bottom:0}
+.gris{color:var(--gris)}
+
+details{border-top:1px dashed var(--linea);padding:.9rem 0}
+summary{
+  font-size:.8rem;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  cursor:pointer;
+  color:var(--cinta);
+}
+summary:focus-visible{outline:2px solid var(--cinta);outline-offset:3px}
+details[open] summary{margin-bottom:1rem}
+details p{margin:0 0 1rem}
+
+.borrador{border-left:3px solid var(--linea);padding:.1rem 0 .1rem 1rem;margin:0 0 1.25rem}
+.borrador .titulo-b{
+  font-size:.75rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  margin:0 0 .3rem;color:var(--gris);
+}
+.borrador.vigente{border-left-color:var(--verde)}
+.borrador.vigente .titulo-b{color:var(--verde)}
+.borrador p{margin:0;font-size:.92rem}
+
+.pendiente{
+  border:1px dashed var(--linea);
+  padding:1.25rem 1.4rem;
+  color:var(--gris);
+  font-size:.92rem;
+}
+.pendiente p{margin:0}
